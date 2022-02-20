@@ -2,9 +2,11 @@
 
 **1. Vytvorit slozku:**
 ```
-sudo mkdir -p /opt/rebelove.org
-cd /opt/rebelove.org 
+cd
 git clone https://github.com/Rebel3D-CZ/RPiWlanApHost-switcher.git
+sudo mkdir -p /opt/rebelove.org
+obsah z gitu nakopirovat do /opt/rebelove.org 
+
 ```
 
 **2. Spustit:**
