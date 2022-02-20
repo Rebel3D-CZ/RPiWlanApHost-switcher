@@ -1,12 +1,17 @@
 # RPiWlanApHost-switcher
 
-0) vytvorit slozku:
+0) vytvorit slozku: 
+  
   sudo mkdir -p /opt/rebelove.org
+  
   stahnout obsah z git...
 
 1) Spustit:
+
   sudo /opt/rebelove.org/sbin/setup_network.sh
+  
   sudo rm /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+  
   sudo ln -s /boot/octopi-wpa-supplicant.txt /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
   
  
