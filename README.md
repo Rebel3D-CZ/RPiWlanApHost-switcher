@@ -50,5 +50,5 @@ DATA
 
 spustit 
 ```
-/opt/rebelove.org/sbin/setup_systemd.sh
+sudo /opt/rebelove.org/sbin/setup_systemd.sh
 ```
