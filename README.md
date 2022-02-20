@@ -15,8 +15,8 @@
  
 opravit v souboru /etc/wpa_supplicant/wpa_supplicant-ap0.conf hodnotu country=CZ
 
-daji se tam i menit pristupove udaje AP
-host udaje se meni v /boot/octopi-wpa-supplicant.txt ... jako do ted
+  daji se tam i menit pristupove udaje AP
+  host udaje se meni v /boot/octopi-wpa-supplicant.txt ... jako do ted
 
 VOLITELNE 
 
