@@ -22,15 +22,30 @@ opravit v souboru /etc/wpa_supplicant/wpa_supplicant-ap0.conf hodnotu country=CZ
 
 **3. VOLITELNE:**
 
-tohle spusti pevny ethernet pod puvodnim jmenem eth0
-```	
+Pokud chcete nastavit dratovy ethernet, tak:
+tohle spusti zarizeni pod puvodnim jmenem eth0
+
+```
 sudo raspi-config
+```
 
 volba  6 - Advanced option
 volba A4 - Network Interface Names
 volba    - No
 povolit reboot
-```	
+
+a tohle zajisti konfiguraci DHCP:
+
+```
+cat | sudo tee /etc/systemd/network/20-wired.network <<DATA
+[Match]
+Name=eth0
+
+[Network]
+DHCP=yes
+DATA
+```
+
 **4. Sluzby**
 
 spustit 
