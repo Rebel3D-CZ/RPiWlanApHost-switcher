@@ -1,4 +1,4 @@
-# RPiWlanApHost-switcher
+# RPi Wlan Ap/Host switcher
 
 1. vytvorit slozku: 
   
