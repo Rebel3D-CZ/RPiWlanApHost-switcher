@@ -1,0 +1,8 @@
+[Unit]
+Description=rebelove.org command daemon
+
+[Service]
+ExecStart=/opt/rebelove.org/sbin/daemon.sh
+
+[Install]
+WantedBy=multi-user.target
