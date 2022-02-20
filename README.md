@@ -3,14 +3,14 @@
 1. vytvorit slozku: 
   
   sudo mkdir -p /opt/rebelove.org
+  cd /opt/rebelove.org 
+  git clone https://github.com/Rebel3D-CZ/RPiWlanApHost-switcher.git
   
-  stahnout obsah z git...
-
 2. Spustit:
 
-			sudo /opt/rebelove.org/sbin/setup_network.sh
-			sudo rm /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
-			sudo ln -s /boot/octopi-wpa-supplicant.txt /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+	sudo /opt/rebelove.org/sbin/setup_network.sh
+	sudo rm /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+	sudo ln -s /boot/octopi-wpa-supplicant.txt /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
   
  
 opravit v souboru /etc/wpa_supplicant/wpa_supplicant-ap0.conf hodnotu country=CZ
