@@ -1,12 +1,12 @@
 # RPi Wlan Ap/Host switcher
 
 **1. Vytvorit slozku:**
-  ```
+```
 sudo mkdir -p /opt/rebelove.org
 cd /opt/rebelove.org 
-  ```
-  git clone https://github.com/Rebel3D-CZ/RPiWlanApHost-switcher.git
-  
+git clone https://github.com/Rebel3D-CZ/RPiWlanApHost-switcher.git
+```
+
 **2. Spustit:**
 ```
 sudo /opt/rebelove.org/sbin/setup_network.sh
