@@ -19,7 +19,7 @@ opravit v souboru /etc/wpa_supplicant/wpa_supplicant-ap0.conf hodnotu country=CZ
   daji se tam i menit pristupove udaje AP
   host udaje se meni v /boot/octopi-wpa-supplicant.txt ... jako do ted
 
-**3. VOLITELNE:**
+**3. VOLITELNE (pouze při použití eth0, u Pi Zero W 2 neni potreba):**
 
 Pokud chcete nastavit dratovy ethernet, tak:
 tohle spusti zarizeni pod puvodnim jmenem eth0
