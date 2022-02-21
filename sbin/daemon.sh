@@ -2,6 +2,7 @@
 APPROOT=/opt/rebelove.org
 WDSTART=0
 WDTIMEOUT=20
+WPASETUP=/etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 
 while [ 1 ]
 do
@@ -46,6 +47,17 @@ do
   then
     $APPROOT/bin/switchToWlan.sh
     rm $APPROOT/var/switch-to-wlan.lock
+    sleep 1m
+  fi
+  if [ -f $APPROOT/var/updatewifi.lock ]
+  then
+    SSID=`grep 'ssid=' $APPROOT/var/updatewifi.lock`
+    PSK=`grep 'psk=' $APPROOT/var/updatewifi.lock`
+
+    sed --follow-symlinks -i 's/ssid=.*/x'"$SSID"'/' $WPASETUP
+    sed --follow-symlinks -i 's/psk=.*/'"$PSK"'/' $WPASETUP
+    $APPROOT/bin/switchToWlan.sh
+    rm $APPROOT/var/updatewifi.lock
     sleep 1m
   fi
   sleep 10s
