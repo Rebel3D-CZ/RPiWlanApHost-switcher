@@ -54,8 +54,8 @@ do
     SSID=`grep 'ssid=' $APPROOT/var/updatewifi.lock`
     PSK=`grep 'psk=' $APPROOT/var/updatewifi.lock`
 
-    sed --follow-symlinks -i 's/ssid=.*/x'"$SSID"'/' $WPASETUP
-    sed --follow-symlinks -i 's/psk=.*/'"$PSK"'/' $WPASETUP
+    sed --follow-symlinks -i 's/.*ssid=.*/'"$SSID"'/' $WPASETUP
+    sed --follow-symlinks -i 's/.*psk=.*/'"$PSK"'/' $WPASETUP
     $APPROOT/bin/switchToWlan.sh
     rm $APPROOT/var/updatewifi.lock
     sleep 1m
