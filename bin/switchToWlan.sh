@@ -7,5 +7,10 @@ if [[ $EUID -ne 0 ]]; then
 	exit 1
 fi
 
-systemctl start wpa_supplicant@wlan0
+if systemctl is-active --quiet wpa_supplicant@wlan0;
+then
+  systemctl restart wpa_supplicant@wlan0
+else
+  systemctl start wpa_supplicant@wlan0
+fi
 exit 0
