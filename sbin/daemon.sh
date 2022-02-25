@@ -3,6 +3,9 @@ APPROOT=/opt/rebelove.org
 WDSTART=0
 WDTIMEOUT=20
 WPASETUP=/etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+SSIDSCANDELAY=60
+SSIDSCANSTART=0
+LOOPDELAY=10s
 
 while [ 1 ]
 do
@@ -36,6 +39,14 @@ do
     fi
   fi
 
+  # scan available SSIDs
+  SINCESCAN=`expr $(date +%s) - $SSIDSCANSTART`
+  if [ $SINCESCAN -ge $SSIDSCANDELAY ]
+  then
+    SSIDSCANSTART=`date +%s`
+    iwlist wlan0 scan | grep SSID | cut -f 2 -d '"' > $APPROOT/var/list.ssid
+  fi
+
   # do some commands
   if [ -f $APPROOT/var/switch-to-ap.lock ]
   then
@@ -60,5 +71,5 @@ do
     rm $APPROOT/var/updatewifi.lock
     sleep 1m
   fi
-  sleep 10s
+  sleep $LOOPDELAY
 done
