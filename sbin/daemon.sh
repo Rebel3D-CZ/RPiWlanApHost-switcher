@@ -32,6 +32,7 @@ do
         TIMEOFFLINE=`expr $(date +%s) - $WDSTART`
         if [ $TIMEOFFLINE -ge $WDTIMEOUT ]
         then
+          echo "WLAN down, switching to AP"
           $APPROOT/bin/switchToAP.sh
           sleep 1m
         fi
@@ -50,18 +51,21 @@ do
   # do some commands
   if [ -f $APPROOT/var/switch-to-ap.lock ]
   then
+    echo "Switching to AP"
     $APPROOT/bin/switchToAP.sh
     rm $APPROOT/var/switch-to-ap.lock
     sleep 1m
   fi
   if [ -f $APPROOT/var/switch-to-wlan.lock ]
   then
+    echo "Switching to WLAN"
     $APPROOT/bin/switchToWlan.sh
     rm $APPROOT/var/switch-to-wlan.lock
     sleep 1m
   fi
   if [ -f $APPROOT/var/updatewifi.lock ]
   then
+    echo "Updating WLAN setup"
     SSID=`grep 'ssid=' $APPROOT/var/updatewifi.lock`
     PSK=`grep 'psk=' $APPROOT/var/updatewifi.lock`
 
@@ -69,6 +73,20 @@ do
     sed --follow-symlinks -i 's/.*psk=.*/'"$PSK"'/' $WPASETUP
     $APPROOT/bin/switchToWlan.sh
     rm $APPROOT/var/updatewifi.lock
+    sleep 1m
+  fi
+  if [ -f $APPROOT/var/vpn.enable ]
+  then
+    echo "Enabling VPN"
+    $APPROOT/bin/enableVPN.sh
+    rm $APPROOT/var/vpn.enable
+    sleep 1m
+  fi
+  if [ -f $APPROOT/var/vpn.disable ]
+  then
+    echo "Disabling VPN"
+    $APPROOT/bin/disableVPN.sh
+    rm $APPROOT/var/vpn.disable
     sleep 1m
   fi
   sleep $LOOPDELAY
