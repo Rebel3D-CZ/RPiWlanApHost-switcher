@@ -1,5 +1,5 @@
 Switcher slouží k zpřístupnění Raspberry Pi po WiFi, bez nutnosti připojení seriové konzole či metalické LAN. Funguje to tak, že pokud není Raspbery po doby cca 20s připojené k žádnému přístupovému bodu, přepne se přepne bez rebootu do režimu AP s SSID RR400M-xxx, heslem rebelove.org a dá se k němu tedy připojit jako k AP. Vašemu PC či telefonu přidělí IP z rozsahu 12.168.4.0/24 a adresa Pi je pak 192.168.4.1 a dá se k němu připojit pomocí SSH či jiné služby která na něm poběží.
-Primárně tento switcher vznikl pro náš plugin pro ovládání Wifi v OctoPrintu 
+Primárně tento switcher vznikl pro náš plugin pro ovládání Wifi a VPN z OctoPrintu https://github.com/Rebel3D-CZ/OctoPrint-RR400M-Customizer
 
 # RPi Wlan Ap/Host switcher
 
