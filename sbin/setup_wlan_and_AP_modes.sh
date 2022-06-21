@@ -580,7 +580,7 @@ fi
   infotitle "Creating wlan0 wpa_supplicant file"
 
   cat >/etc/wpa_supplicant/wpa_supplicant-wlan0.conf <<EOF
-country=US
+country=CZ
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 network={

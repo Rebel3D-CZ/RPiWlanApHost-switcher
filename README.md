@@ -1,4 +1,4 @@
-Switcher slouží k zpřístupnění Raspberry Pi po WiFi, bez nutnosti připojení seriové konzole či metalické LAN. Funguje to tak, že pokud není Raspbery po doby cca 20s připojené k žádnému přístupovému bodu, přepne se přepne bez rebootu do režimu AP s SSID RR400M-xxx, heslem rebelove.org a dá se k němu tedy připojit jako k AP. Vašemu PC či telefonu přidělí IP z rozsahu 12.168.4.0/24 a adresa Pi je pak 192.168.4.1 a dá se k němu připojit pomocí SSH či jiné služby která na něm poběží.
+Switcher slouží k zpřístupnění Raspberry Pi po WiFi, bez nutnosti připojení seriové konzole či metalické LAN. Funguje to tak, že pokud není Raspbery po doby cca 20s připojené k žádnému přístupovému bodu, přepne se přepne bez rebootu do režimu AP s SSID RR400M-xxx, heslem rebelove.org a dá se k němu tedy připojit jako k AP. Vašemu PC či telefonu přidělí IP z rozsahu 192.168.4.0/24 a adresa Pi je pak 192.168.4.1 a dá se k němu připojit pomocí SSH či jiné služby která na něm poběží.
 Primárně tento switcher vznikl pro náš plugin pro ovládání Wifi a VPN z OctoPrintu https://github.com/Rebel3D-CZ/OctoPrint-RR400M-Customizer
 
 # RPi Wlan Ap/Host switcher
@@ -17,10 +17,9 @@ sudo /opt/rebelove.org/sbin/setup_network.sh
 sudo rm /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 sudo ln -s /boot/octopi-wpa-supplicant.txt /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 ```   
-opravit v souboru /etc/wpa_supplicant/wpa_supplicant-ap0.conf hodnotu country=CZ
+v souboru /etc/wpa_supplicant/wpa_supplicant-ap0.conf se daji menit pristupove udaje AP
 
-  daji se tam i menit pristupove udaje AP
-  host udaje se meni v /boot/octopi-wpa-supplicant.txt ... jako do ted
+host udaje se meni v /boot/octopi-wpa-supplicant.txt ... jako do ted
 
 **3. VOLITELNE (pouze při použití eth0, u Pi Zero W 2 neni potreba):**
 
