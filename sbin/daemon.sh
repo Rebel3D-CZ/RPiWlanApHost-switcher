@@ -45,7 +45,7 @@ do
   if [ $SINCESCAN -ge $SSIDSCANDELAY ]
   then
     SSIDSCANSTART=`date +%s`
-    iwlist wlan0 scan | grep SSID | cut -f 2 -d '"' > $APPROOT/var/list.ssid
+    iwlist wlan0 scan | grep SSID | cut -f 2 -d '"' | sort | uniq > $APPROOT/var/list.ssid
   fi
 
   # do some commands
